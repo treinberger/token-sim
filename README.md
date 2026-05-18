@@ -1,8 +1,11 @@
 # τ token-sim
 
+[![Live demo](https://img.shields.io/badge/demo-treinberger.github.io%2Ftoken--sim-6cf?style=for-the-badge&logo=github)](https://treinberger.github.io/token-sim/)
+[![Deploy](https://github.com/treinberger/token-sim/actions/workflows/deploy.yml/badge.svg)](https://github.com/treinberger/token-sim/actions/workflows/deploy.yml)
+
 A browser-only, educational Monte Carlo simulator for **Claude Code token costs, session quality (heuristic), and context-window utilization**. Built as a blog-post companion: you tweak sliders, the charts update live, and the URL hash captures every parameter so you can share scenarios.
 
-> **Live demo:** _coming soon (deploy via GitHub Pages — see below)_
+**→ Try it: https://treinberger.github.io/token-sim/**
 
 ![Token-Sim screenshot](.screenshots/main-v2.png)
 
