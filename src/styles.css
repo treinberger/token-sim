@@ -1,0 +1,125 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0e14;
+  --bg-elev: #131720;
+  --bg-elev-2: #1a1f2b;
+  --bg-elev-3: #232a39;
+  --border: #2a3142;
+  --border-strong: #3a4358;
+  --fg: #e4e7ec;
+  --fg-muted: #9aa3b2;
+  --fg-dim: #5a6478;
+  --accent: #6cf;
+  --accent-dim: #4a8db5;
+  --baseline: #6cf;
+  --variant: #fc6;
+  --good: #7cdb86;
+  --warn: #ffb84d;
+  --bad: #ff6b6b;
+  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 14px;
+  line-height: 1.4;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+button {
+  font-family: inherit;
+  background: var(--bg-elev-2);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.4em 0.8em;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s;
+}
+button:hover {
+  background: var(--bg-elev-3);
+  border-color: var(--border-strong);
+}
+button.primary {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: #fff;
+}
+button.toggle.on {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+input[type="number"] {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--fg);
+  padding: 2px 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  width: 80px;
+}
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+select {
+  background: var(--bg-elev-2);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 3px 6px;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+label {
+  font-size: 12px;
+  color: var(--fg-muted);
+}
+
+.mono { font-family: var(--mono); }
+.muted { color: var(--fg-muted); }
+.dim { color: var(--fg-dim); }
+.small { font-size: 11px; }
+
+.chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  font-family: var(--mono);
+}
+.chip.baseline { color: var(--baseline); border-color: var(--baseline); }
+.chip.variant { color: var(--variant); border-color: var(--variant); }

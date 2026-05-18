@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Methodology page
+    url: https://github.com/treinberger/token-sim/blob/main/src/routes/methodology/+page.svelte
+    about: Read the math model documentation before filing a math bug.

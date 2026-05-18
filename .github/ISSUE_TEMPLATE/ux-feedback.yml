@@ -1,0 +1,53 @@
+name: UX feedback — UI / clarity / didactics
+description: Report a confusing label, unclear chart, missing tooltip, or layout issue.
+title: "[ux] "
+labels: ["ux", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The simulator is built to teach. If something confused you, that\'s a bug —
+        thanks for telling us.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part?
+      multiple: false
+      options:
+        - Input panel — slider, label, or tooltip
+        - Charts — axes, thresholds, colors, scale
+        - Δ-Card — comparison numbers
+        - Methodology page
+        - Presets
+        - URL sharing
+        - Mobile / responsive layout
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What confused you?
+      description: Describe what you saw and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggestion (optional)
+      description: How would you have it work? Sketches, screenshots, or text all welcome.
+
+  - type: input
+    id: config-url
+    attributes:
+      label: Reproducible config URL (optional)
+      placeholder: https://.../#cfg=...
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser / device
+      placeholder: e.g. Firefox 135 on macOS, Safari iOS

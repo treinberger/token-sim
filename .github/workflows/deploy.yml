@@ -1,0 +1,58 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Type-check
+        run: npm run check
+
+      - name: Build (with BASE_PATH for project page)
+        env:
+          # Derives "/repo-name" from "owner/repo-name"
+          BASE_PATH: /${{ github.event.repository.name }}
+          PUBLIC_REPO_URL: https://github.com/${{ github.repository }}
+        run: npm run build
+
+      - name: Disable Jekyll
+        run: touch build/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

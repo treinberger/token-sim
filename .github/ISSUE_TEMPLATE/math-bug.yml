@@ -1,0 +1,55 @@
+name: Math model — correction / improvement
+description: Report a formula, default value, or assumption that\'s wrong or misleading.
+title: "[math] "
+labels: ["math", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve the simulator. Token-Sim\'s math is heuristic and
+        explicitly invites correction. Please point to the specific formula or default
+        value and cite a source if you have one.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What does the model currently say?
+      description: Quote the formula, default value, or behaviour you want to discuss.
+      placeholder: |
+        e.g. "compaction.triggerPct default = 0.92" or "coherence sigmoid centered at decayStartPct"
+    validations:
+      required: true
+
+  - type: textarea
+    id: correction
+    attributes:
+      label: What should it say instead?
+      description: Propose a corrected formula, value, or mechanism.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source / evidence
+      description: Anthropic docs, blog post, paper, or measured data. Links welcome.
+      placeholder: |
+        https://platform.claude.com/docs/...
+
+  - type: input
+    id: config-url
+    attributes:
+      label: Reproducible config URL (optional)
+      description: Paste the shareable URL from the simulator that triggers the issue.
+      placeholder: https://.../#cfg=...
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Severity
+      options:
+        - High — produces clearly wrong cost/quality numbers
+        - Medium — misleading default, but explainable in the UI
+        - Low — refinement / pedagogical clarity
+    validations:
+      required: true
